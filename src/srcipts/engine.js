@@ -40,10 +40,19 @@ function handleClick() {
     }
 }
 
+function playSound(audioName){
+    let audio = new Audio (`./src/audios/${audioName}.mp4`);
+    audio.volume = 0.2;
+    audio.play();
+}
+
+
 function checkMatch() {
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
         openCards[0].classList.add("boxMatch");
         openCards[1].classList.add("boxMatch");
+        playSound("acerto");
+        
     } else {
         openCards[0].classList.remove("boxOpen");
         openCards[1].classList.remove("boxOpen");
